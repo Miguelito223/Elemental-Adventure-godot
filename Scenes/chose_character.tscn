@@ -1,15 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bobb12psnciuk"]
+[gd_scene load_steps=3 format=3 uid="uid://bobb12psnciuk"]
 
-[ext_resource type="Script" path="res://Scripts/chose_character.gd" id="1_mqkl6"]
+[ext_resource type="Script" uid="uid://b6w65le2l8wnk" path="res://Scripts/chose_character.gd" id="1_hwby1"]
 [ext_resource type="Theme" uid="uid://cf6o5io44h03f" path="res://Elemental Adventure theme.tres" id="1_si5xw"]
-[ext_resource type="Texture2D" uid="uid://d3l2e26s0r3op" path="res://Sprites/Fire IDle.png" id="2_sqlja"]
-[ext_resource type="Texture2D" uid="uid://bhtn0asm5ij01" path="res://Sprites/water idle.png" id="3_8pxc4"]
-[ext_resource type="Texture2D" uid="uid://dn2uwttahe5bw" path="res://Sprites/air idle.png" id="4_nb3qt"]
-[ext_resource type="Texture2D" uid="uid://bff040cb4af36" path="res://Sprites/earth idle.png" id="5_1wjbd"]
 
 [node name="Chose_Character" type="CanvasLayer"]
 layer = 2
-script = ExtResource("1_mqkl6")
+script = ExtResource("1_hwby1")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 15
@@ -32,24 +28,16 @@ offset_bottom = -356.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_si5xw")
-theme_override_font_sizes/font_size = 100
 text = "Chose the character"
+horizontal_alignment = 1
 
 [node name="fire" type="VBoxContainer" parent="."]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -122.5
-offset_right = 258.0
-offset_bottom = 122.5
-grow_vertical = 2
+offset_left = 378.0
+offset_top = 288.0
+offset_right = 636.0
+offset_bottom = 571.0
 theme = ExtResource("1_si5xw")
 alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="fire"]
-layout_mode = 2
-texture = ExtResource("2_sqlja")
-expand_mode = 5
 
 [node name="Label" type="Label" parent="fire"]
 layout_mode = 2
@@ -63,24 +51,16 @@ theme_override_font_sizes/font_size = 50
 text = "Press"
 
 [node name="water" type="VBoxContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -129.0
-offset_top = -122.5
-offset_right = 129.0
-offset_bottom = 122.5
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 378.0
+offset_top = -480.0
+offset_right = 636.0
+offset_bottom = -125.0
+grow_vertical = 0
 theme = ExtResource("1_si5xw")
 alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="water"]
-layout_mode = 2
-texture = ExtResource("3_8pxc4")
-expand_mode = 5
 
 [node name="Label" type="Label" parent="water"]
 layout_mode = 2
@@ -95,23 +75,19 @@ theme_override_font_sizes/font_size = 50
 text = "Press"
 
 [node name="air" type="VBoxContainer" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -129.0
-offset_top = -245.0
-offset_right = 129.0
-grow_horizontal = 2
+offset_left = -637.0
+offset_top = -480.0
+offset_right = -379.0
+offset_bottom = -125.0
+grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("1_si5xw")
 alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="air"]
-layout_mode = 2
-texture = ExtResource("4_nb3qt")
-expand_mode = 5
 
 [node name="Label" type="Label" parent="air"]
 layout_mode = 2
@@ -126,23 +102,16 @@ theme_override_font_sizes/font_size = 50
 text = "Press"
 
 [node name="earth" type="VBoxContainer" parent="."]
-anchors_preset = 6
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -258.0
-offset_top = -122.5
-offset_bottom = 122.5
+offset_left = -637.0
+offset_top = 302.0
+offset_right = -379.0
+offset_bottom = 585.0
 grow_horizontal = 0
-grow_vertical = 2
 theme = ExtResource("1_si5xw")
 alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="earth"]
-layout_mode = 2
-texture = ExtResource("5_1wjbd")
-expand_mode = 5
 
 [node name="Label" type="Label" parent="earth"]
 layout_mode = 2

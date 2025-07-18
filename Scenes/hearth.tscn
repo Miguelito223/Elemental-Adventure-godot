@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://betdnk2m31png"]
 
-[ext_resource type="Script" path="res://Scripts/Hearth.gd" id="1_abea5"]
-[ext_resource type="Texture2D" uid="uid://chda8y1tj8hby" path="res://Sprites/hearth.png" id="2_16pkc"]
+[ext_resource type="Script" uid="uid://ci16bxk3si1py" path="res://Scripts/Hearth.gd" id="1_abea5"]
+[ext_resource type="Texture2D" uid="uid://cq23fmociwtqn" path="res://Sprites/life.png" id="2_16pkc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cfbd"]
 radius = 7.0
@@ -50,8 +50,8 @@ replication_config = SubResource("SceneReplicationConfig_3nfkf")
 shape = SubResource("RectangleShape2D_lx1vc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.19209e-06, 1.5)
-scale = Vector2(0.015, 0.0145349)
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.1875, 0.1875)
 texture = ExtResource("2_16pkc")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

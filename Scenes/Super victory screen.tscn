@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dj5hoawm4c8hc"]
 
 [ext_resource type="Theme" uid="uid://cf6o5io44h03f" path="res://Elemental Adventure theme.tres" id="1_chnvv"]
-[ext_resource type="Script" path="res://Scripts/Super victory screen.gd" id="1_x1h5b"]
+[ext_resource type="Script" uid="uid://cxw8khmyf2wub" path="res://Scripts/Super victory screen.gd" id="1_x1h5b"]
 [ext_resource type="FontFile" uid="uid://dsgyxibyhxj10" path="res://PressStart2P.ttf" id="2_6pc16"]
-[ext_resource type="Script" path="res://Scripts/Button.gd" id="3_fhev0"]
+[ext_resource type="Script" uid="uid://c77tqvtvjxiyi" path="res://Scripts/Button.gd" id="3_fhev0"]
 [ext_resource type="AudioStream" uid="uid://cnvsxqk4pvf7y" path="res://sounds/Victory Sound.wav" id="4_dqktq"]
 
 [node name="Super Victory menu" type="CanvasLayer"]
@@ -36,7 +36,6 @@ offset_right = 910.0
 offset_bottom = 185.0
 grow_horizontal = 2
 theme = ExtResource("1_chnvv")
-theme_override_font_sizes/font_size = 91
 text = "you won!!
 Thank to play this!!"
 horizontal_alignment = 1
@@ -60,8 +59,6 @@ theme = ExtResource("1_chnvv")
 [node name="energys" type="Label" parent="VBoxContainer2"]
 process_mode = 3
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_6pc16")
-theme_override_font_sizes/font_size = 100
 text = "energys balls:0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -69,8 +66,7 @@ vertical_alignment = 1
 [node name="score" type="Label" parent="VBoxContainer2"]
 process_mode = 3
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_6pc16")
-theme_override_font_sizes/font_size = 100
+theme = ExtResource("1_chnvv")
 text = "Score:0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -92,7 +88,7 @@ theme = ExtResource("1_chnvv")
 [node name="back" type="Button" parent="VBoxContainer"]
 process_mode = 3
 layout_mode = 2
-theme_override_font_sizes/font_size = 90
+theme = ExtResource("1_chnvv")
 text = "Exit"
 script = ExtResource("3_fhev0")
 

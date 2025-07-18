@@ -1,12 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq8c11xjf1nct"]
+[gd_scene load_steps=5 format=3 uid="uid://bq8c11xjf1nct"]
 
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_2vk4l"]
+[ext_resource type="Script" uid="uid://bfhjoptvad3x0" path="res://Scripts/main_menu.gd" id="1_2vk4l"]
 [ext_resource type="Theme" uid="uid://cf6o5io44h03f" path="res://Elemental Adventure theme.tres" id="1_f10x6"]
-[ext_resource type="Texture2D" uid="uid://bkgcaxfl6au5c" path="res://Foregound.png" id="2_h1r40"]
+[ext_resource type="Texture2D" uid="uid://48wvoyua3q5h" path="res://Sprites/fire.png" id="3_cp0ys"]
 [ext_resource type="FontFile" uid="uid://dsgyxibyhxj10" path="res://PressStart2P.ttf" id="3_his25"]
-[ext_resource type="AudioStream" uid="uid://dsi8jiqv1o424" path="res://sounds/Music/main menu music.mp3" id="4_07aup"]
-[ext_resource type="Script" path="res://Scripts/Button.gd" id="4_236ea"]
-[ext_resource type="Script" path="res://Scripts/Control.gd" id="5_gdsp0"]
 
 [node name="Main Menu" type="CanvasLayer"]
 layer = 2
@@ -45,7 +42,7 @@ offset_bottom = 356.0
 grow_horizontal = 0
 scale = Vector2(0.424043, 0.419502)
 theme = ExtResource("1_f10x6")
-texture = ExtResource("2_h1r40")
+texture = ExtResource("3_cp0ys")
 
 [node name="Tittle" type="Label" parent="Title"]
 texture_filter = 1
@@ -53,16 +50,14 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -714.0
-offset_top = -4.0
-offset_right = 806.0
-offset_bottom = 76.0004
+offset_left = -475.001
+offset_top = -2.00001
+offset_right = 474.999
+offset_bottom = 48.0
 grow_horizontal = 2
-scale = Vector2(0.941, 1)
 theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-theme_override_font_sizes/font_size = 70
 text = "Elemental Adventure"
+horizontal_alignment = 1
 
 [node name="Credits" type="Label" parent="."]
 anchors_preset = 2
@@ -96,7 +91,6 @@ layout_mode = 2
 theme = ExtResource("1_f10x6")
 theme_override_fonts/font = ExtResource("3_his25")
 text = "play"
-script = ExtResource("4_236ea")
 
 [node name="Online" type="Button" parent="main menu"]
 layout_mode = 2
@@ -110,506 +104,63 @@ theme = ExtResource("1_f10x6")
 theme_override_fonts/font = ExtResource("3_his25")
 text = "Options"
 
-[node name="delete data" type="Button" parent="main menu"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Delete data
-"
-
 [node name="exit" type="Button" parent="main menu"]
 layout_mode = 2
 theme = ExtResource("1_f10x6")
 theme_override_fonts/font = ExtResource("3_his25")
 text = "Exit"
 
-[node name="Online Menu" type="VBoxContainer" parent="."]
+[node name="Options" type="VBoxContainer" parent="."]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -304.0
-offset_top = -150.0
-offset_right = 304.0
-offset_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_f10x6")
-theme_override_constants/separation = 0
-alignment = 1
+offset_left = 694.0
+offset_top = 547.0
+offset_right = 1252.0
+offset_bottom = 605.0
 
-[node name="Host2" type="VBoxContainer" parent="Online Menu"]
-visible = false
+[node name="Label" type="Label" parent="Options"]
 layout_mode = 2
 theme = ExtResource("1_f10x6")
+text = "SFX"
 
-[node name="name text" type="Label" parent="Online Menu/Host2"]
+[node name="Volume" type="HSlider" parent="Options"]
+layout_mode = 2
+max_value = 0.8
+step = 0.001
+
+[node name="Label2" type="Label" parent="Options"]
 layout_mode = 2
 theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-text = "name"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "Music"
 
-[node name="name port" type="LineEdit" parent="Online Menu/Host2"]
+[node name="Volume 2" type="HSlider" parent="Options"]
+layout_mode = 2
+max_value = 0.8
+step = 0.001
+
+[node name="CheckButton" type="CheckButton" parent="Options"]
 layout_mode = 2
 theme = ExtResource("1_f10x6")
-placeholder_text = "MichaxD"
+text = "FullScreen"
 
-[node name="port text" type="Label" parent="Online Menu/Host2"]
+[node name="delete data" type="Button" parent="Options"]
 layout_mode = 2
 theme = ExtResource("1_f10x6")
 theme_override_fonts/font = ExtResource("3_his25")
-text = "port"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "Delete data
+"
 
-[node name="port" type="LineEdit" parent="Online Menu/Host2"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-placeholder_text = "9999"
-
-[node name="create" type="Button" parent="Online Menu/Host2"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Create"
-
-[node name="Join2" type="VBoxContainer" parent="Online Menu"]
-visible = false
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-
-[node name="name text" type="Label" parent="Online Menu/Join2"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-text = "name"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="name port" type="LineEdit" parent="Online Menu/Join2"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-placeholder_text = "MichaxD"
-
-[node name="port text" type="Label" parent="Online Menu/Join2"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-text = "port"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="port" type="LineEdit" parent="Online Menu/Join2"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-placeholder_text = "9999"
-
-[node name="ip text" type="Label" parent="Online Menu/Join2"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-text = "ip"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ip" type="LineEdit" parent="Online Menu/Join2"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-placeholder_text = "127.0.0.1"
-
-[node name="join" type="Button" parent="Online Menu/Join2"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Join"
-
-[node name="Server Browser2" type="VBoxContainer" parent="Online Menu"]
-visible = false
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-
-[node name="Control" type="Control" parent="Online Menu/Server Browser2"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-script = ExtResource("5_gdsp0")
-
-[node name="broadcast timer" type="Timer" parent="Online Menu/Server Browser2/Control"]
-autostart = true
-
-[node name="Panel" type="Panel" parent="Online Menu/Server Browser2/Control"]
-layout_mode = 2
-offset_left = -134.766
-offset_top = -151.667
-offset_right = 738.234
-offset_bottom = 151.333
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_f10x6")
-
-[node name="ServerInfo" type="HBoxContainer" parent="Online Menu/Server Browser2/Control/Panel"]
-layout_mode = 0
-offset_left = 20.9961
-offset_top = -3.33333
-offset_right = 448.996
-offset_bottom = 36.6667
-theme = ExtResource("1_f10x6")
-alignment = 1
-
-[node name="Name" type="Label" parent="Online Menu/Server Browser2/Control/Panel/ServerInfo"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_font_sizes/font_size = 45
-text = "Name,"
-
-[node name="count" type="Label" parent="Online Menu/Server Browser2/Control/Panel/ServerInfo"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_font_sizes/font_size = 45
-text = "Count,"
-
-[node name="ip" type="Label" parent="Online Menu/Server Browser2/Control/Panel/ServerInfo"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_font_sizes/font_size = 45
-text = "ip,"
-
-[node name="port" type="Label" parent="Online Menu/Server Browser2/Control/Panel/ServerInfo"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_font_sizes/font_size = 45
-text = "port"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Online Menu/Server Browser2/Control/Panel"]
-layout_mode = 0
-offset_left = 114.258
-offset_top = 56.6667
-offset_right = 730.258
-offset_bottom = 96.6667
-theme = ExtResource("1_f10x6")
-
-[node name="Label" type="Label" parent="Online Menu/Server Browser2/Control/Panel"]
-layout_mode = 0
-offset_left = 17.5781
-offset_top = 271.333
-offset_right = 57.5781
-offset_bottom = 294.333
-theme = ExtResource("1_f10x6")
-theme_override_font_sizes/font_size = 30
-text = "Bound to lisen port: "
-
-[node name="host" type="Button" parent="Online Menu"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Host"
-
-[node name="join" type="Button" parent="Online Menu"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Join"
-
-[node name="server browser" type="Button" parent="Online Menu"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Server browser local"
-
-[node name="back" type="Button" parent="Online Menu"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-theme_override_font_sizes/font_size = 50
-text = "Back"
-
-[node name="Settings menu" type="VBoxContainer" parent="."]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -304.0
-offset_top = -174.0
-offset_right = 304.0
-offset_bottom = 174.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_f10x6")
-theme_override_constants/separation = 0
-alignment = 1
-
-[node name="Graphics" type="VBoxContainer" parent="Settings menu"]
-visible = false
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-
-[node name="fullscreen tongle" type="CheckButton" parent="Settings menu/Graphics"]
-layout_mode = 2
-action_mode = 0
-text = "Full Screen"
-
-[node name="Resolution laber" type="Label" parent="Settings menu/Graphics"]
-layout_mode = 2
-text = "Resolution"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="resolution" type="OptionButton" parent="Settings menu/Graphics"]
-layout_mode = 2
-
-[node name="graphics label2" type="Label" parent="Settings menu/Graphics"]
-process_mode = 3
-layout_mode = 2
-text = "graphics"
-
-[node name="graphics" type="OptionButton" parent="Settings menu/Graphics"]
-process_mode = 3
-layout_mode = 2
-
-[node name="FPS" type="CheckButton" parent="Settings menu/Graphics"]
-process_mode = 3
-layout_mode = 2
-text = "FPS"
-
-[node name="vsycs" type="CheckButton" parent="Settings menu/Graphics"]
-process_mode = 3
-layout_mode = 2
-text = "vsycs"
-
-[node name="Volumen" type="VBoxContainer" parent="Settings menu"]
-visible = false
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-
-[node name="master label" type="Label" parent="Settings menu/Volumen"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Master Volume"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="master volume" type="HSlider" parent="Settings menu/Volumen"]
-layout_mode = 2
-min_value = -45.0
-max_value = 0.0
-
-[node name="Fx label" type="Label" parent="Settings menu/Volumen"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Fx Volume"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Fx volume" type="HSlider" parent="Settings menu/Volumen"]
-layout_mode = 2
-min_value = -45.0
-max_value = 0.0
-
-[node name="Music label" type="Label" parent="Settings menu/Volumen"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Music Volume"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="music volume" type="HSlider" parent="Settings menu/Volumen"]
-layout_mode = 2
-min_value = -45.0
-max_value = 0.0
-
-[node name="Autosave" type="VBoxContainer" parent="Settings menu"]
-visible = false
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-
-[node name="Autosave" type="CheckButton" parent="Settings menu/Autosave"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Autosave"
-
-[node name="autosave length" type="Label" parent="Settings menu/Autosave"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_his25")
-text = "autosave length"
-
-[node name="autosave length text" type="LineEdit" parent="Settings menu/Autosave"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_his25")
-text = "5"
-
-[node name="time" type="VBoxContainer" parent="Settings menu"]
-visible = false
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-
-[node name="initial time" type="Label" parent="Settings menu/time"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Initial Time"
-
-[node name="initial time text" type="LineEdit" parent="Settings menu/time"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_his25")
-text = "12"
-
-[node name="time speed" type="Label" parent="Settings menu/time"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Time speed"
-
-[node name="time speed text" type="LineEdit" parent="Settings menu/time"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_his25")
-text = "1.0"
-
-[node name="Inputs" type="VBoxContainer" parent="Settings menu"]
-visible = false
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-
-[node name="Input_set label2" type="Label" parent="Settings menu/Inputs"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Input type"
-
-[node name="Input_set" type="OptionButton" parent="Settings menu/Inputs"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_his25")
-
-[node name="Mobile buttons" type="CheckButton" parent="Settings menu/Inputs"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Mobile buttons"
-
-[node name="Input_set label" type="Label" parent="Settings menu/Inputs"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Input Remapping:"
-
-[node name="GridContainer" type="GridContainer" parent="Settings menu/Inputs"]
-layout_mode = 2
-columns = 2
-
-[node name="Multiplayer" type="VBoxContainer" parent="Settings menu"]
-visible = false
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-
-[node name="Players Num" type="Label" parent="Settings menu/Multiplayer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Players num: (only work with keyboard)"
-
-[node name="player Num text" type="LineEdit" parent="Settings menu/Multiplayer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_his25")
-text = "0"
-
-[node name="graphics button" type="Button" parent="Settings menu"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-text = "Graphics"
-
-[node name="inputs button" type="Button" parent="Settings menu"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-text = "inputs"
-
-[node name="time button" type="Button" parent="Settings menu"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-text = "time"
-
-[node name="volumen button" type="Button" parent="Settings menu"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-text = "volumen"
-
-[node name="multiplayer button" type="Button" parent="Settings menu"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-text = "multiplayer"
-
-[node name="autosave button" type="Button" parent="Settings menu"]
-layout_mode = 2
-theme = ExtResource("1_f10x6")
-theme_override_fonts/font = ExtResource("3_his25")
-text = "autosave"
-
-[node name="back" type="Button" parent="Settings menu"]
+[node name="Back" type="Button" parent="Options"]
 layout_mode = 2
 theme = ExtResource("1_f10x6")
 theme_override_fonts/font = ExtResource("3_his25")
 text = "Back"
-
-[node name="Exit Dialog" type="ConfirmationDialog" parent="."]
-initial_position = 1
-size = Vector2i(1050, 200)
-theme = ExtResource("1_f10x6")
-ok_button_text = "Yes"
-dialog_text = "Are you sure?"
-cancel_button_text = "No"
-
-[node name="Remove data Dialog" type="ConfirmationDialog" parent="."]
-initial_position = 1
-size = Vector2i(1816, 200)
-theme = ExtResource("1_f10x6")
-ok_button_text = "Yes"
-dialog_text = "Are you sure?, You can lost the data"
-cancel_button_text = "No"
-
-[node name="Main menu music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_07aup")
-autoplay = true
-bus = &"Music"
 
 [connection signal="pressed" from="main menu/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="main menu/Online" to="." method="_on_online_pressed"]
 [connection signal="pressed" from="main menu/option" to="." method="_on_option_pressed"]
-[connection signal="pressed" from="main menu/delete data" to="." method="_on_delete_data_pressed"]
 [connection signal="pressed" from="main menu/exit" to="." method="_on_exit_pressed"]
-[connection signal="text_changed" from="Online Menu/Host2/name port" to="." method="_on_name_port_text_changed"]
-[connection signal="text_changed" from="Online Menu/Host2/port" to="." method="_on_port_text_changed"]
-[connection signal="pressed" from="Online Menu/Host2/create" to="." method="_on_create_pressed"]
-[connection signal="text_changed" from="Online Menu/Join2/name port" to="." method="_on_name_port_text_changed"]
-[connection signal="text_changed" from="Online Menu/Join2/port" to="." method="_on_port_text_changed"]
-[connection signal="text_changed" from="Online Menu/Join2/ip" to="." method="_on_ip_text_changed"]
-[connection signal="pressed" from="Online Menu/Join2/join" to="." method="_on_join2_pressed"]
-[connection signal="timeout" from="Online Menu/Server Browser2/Control/broadcast timer" to="Online Menu/Server Browser2/Control" method="_on_broadcast_timer_timeout"]
-[connection signal="pressed" from="Online Menu/host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="Online Menu/join" to="." method="_on_join_pressed"]
-[connection signal="pressed" from="Online Menu/server browser" to="." method="_on_server_browser_pressed"]
-[connection signal="pressed" from="Online Menu/back" to="." method="_on_back2_pressed"]
-[connection signal="toggled" from="Settings menu/Graphics/fullscreen tongle" to="." method="_on_fullscreen_tongle_toggled"]
-[connection signal="item_selected" from="Settings menu/Graphics/resolution" to="." method="_on_option_button_item_selected"]
-[connection signal="item_selected" from="Settings menu/Graphics/graphics" to="." method="_on_graphics_item_selected"]
-[connection signal="toggled" from="Settings menu/Graphics/FPS" to="." method="_on_fps_toggled"]
-[connection signal="toggled" from="Settings menu/Graphics/vsycs" to="." method="_on_vsycs_toggled"]
-[connection signal="value_changed" from="Settings menu/Volumen/master volume" to="." method="_on_master_volume_value_changed"]
-[connection signal="value_changed" from="Settings menu/Volumen/Fx volume" to="." method="_on_fx_volume_value_changed"]
-[connection signal="value_changed" from="Settings menu/Volumen/music volume" to="." method="_on_music_volume_value_changed"]
-[connection signal="toggled" from="Settings menu/Autosave/Autosave" to="." method="_on_autosave_toggled"]
-[connection signal="text_changed" from="Settings menu/Autosave/autosave length text" to="." method="_on_autosave_length_text_text_changed"]
-[connection signal="text_changed" from="Settings menu/time/initial time text" to="." method="_on_initial_time_text_text_changed"]
-[connection signal="text_changed" from="Settings menu/time/time speed text" to="." method="_on_time_speed_text_text_changed"]
-[connection signal="item_selected" from="Settings menu/Inputs/Input_set" to="." method="_on_input_set_item_selected"]
-[connection signal="toggled" from="Settings menu/Inputs/Mobile buttons" to="." method="_on_mobile_buttons_toggled"]
-[connection signal="pressed" from="Settings menu/graphics button" to="." method="_on_graphics_pressed"]
-[connection signal="pressed" from="Settings menu/inputs button" to="." method="_on_inputs_button_pressed"]
-[connection signal="pressed" from="Settings menu/time button" to="." method="_on_time_button_pressed"]
-[connection signal="pressed" from="Settings menu/volumen button" to="." method="_on_volumen_button_pressed"]
-[connection signal="pressed" from="Settings menu/multiplayer button" to="." method="_on_multiplayer_button_pressed"]
-[connection signal="pressed" from="Settings menu/autosave button" to="." method="_on_autosave_button_pressed"]
-[connection signal="pressed" from="Settings menu/back" to="." method="_on_back_pressed"]
-[connection signal="confirmed" from="Exit Dialog" to="." method="_on_exit_dialog_confirmed"]
-[connection signal="confirmed" from="Remove data Dialog" to="." method="_on_remove_data_dialog_confirmed"]
+[connection signal="value_changed" from="Options/Volume" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Options/Volume 2" to="." method="_on_volume_2_value_changed"]
+[connection signal="toggled" from="Options/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="Options/delete data" to="." method="_on_delete_data_pressed"]
+[connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]

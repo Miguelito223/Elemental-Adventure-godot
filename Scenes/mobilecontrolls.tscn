@@ -1,31 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://ywyhxmenkfw"]
 
-[ext_resource type="Script" path="res://Scripts/Mobilecontrolls.gd" id="1_u6svl"]
-[ext_resource type="Texture2D" uid="uid://cfro4taixkxu6" path="res://Sprites/up.png" id="2_rg3jk"]
-[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="3_ifnkr"]
+[ext_resource type="Script" uid="uid://chosbvypg2g1i" path="res://Scripts/Mobilecontrolls.gd" id="1_u6svl"]
+[ext_resource type="Texture2D" uid="uid://by8g56ffqs3lc" path="res://Sprites/Controls/shaded-light/shadedLight45.png" id="2_rg3jk"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="3_iu87r"]
 
 [node name="Mobilecontrolls" type="CanvasLayer"]
 script = ExtResource("1_u6svl")
 
 [node name="jump" type="TouchScreenButton" parent="."]
-position = Vector2(1589, 727)
-scale = Vector2(1.675, 1.745)
+position = Vector2(1572, 748)
+scale = Vector2(2.6125, 2.5125)
 texture_normal = ExtResource("2_rg3jk")
 action = "jump0"
 visibility_mode = 1
 
-[node name="Virtual Joystick" parent="." instance=ExtResource("3_ifnkr")]
-offset_left = 4.0
-offset_top = -455.0
-offset_right = 304.0
-offset_bottom = -155.0
-scale = Vector2(1.5, 1.5)
-pressed_color = Color(1, 1, 1, 1)
-deadzone_size = 100.0
-clampzone_size = 175.0
-joystick_mode = 1
-visibility_mode = 1
-action_left = "left0"
-action_right = "right0"
-action_up = ""
-action_down = ""
+[node name="Virtual Joystick" parent="." instance=ExtResource("3_iu87r")]
+offset_top = -464.0
+offset_right = 440.0
+offset_bottom = -1.0

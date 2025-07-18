@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://choeqgyk2lvq5"]
 
-[ext_resource type="Script" path="res://Scripts/plataform.gd" id="1_unfvi"]
+[ext_resource type="Script" uid="uid://doojc5isfvjst" path="res://Scripts/plataform.gd" id="1_unfvi"]
 [ext_resource type="Texture2D" uid="uid://c02ojrdokqqnr" path="res://Sprites/plataform_2.png" id="2_k6g71"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ylvgc"]
@@ -165,8 +165,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7wg80"]
 _data = {
-"RESET": SubResource("Animation_55wjb"),
-"move": SubResource("Animation_e2dlq")
+&"RESET": SubResource("Animation_55wjb"),
+&"move": SubResource("Animation_e2dlq")
 }
 
 [node name="plataform_2" type="Path2D" groups=["persistent"]]

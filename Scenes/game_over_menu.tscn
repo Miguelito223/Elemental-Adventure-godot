@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://v8uq1u8p3nxj"]
 
 [ext_resource type="Theme" uid="uid://cf6o5io44h03f" path="res://Elemental Adventure theme.tres" id="1_56oo4"]
-[ext_resource type="Script" path="res://Scripts/game over Menu.gd" id="1_i0b3j"]
+[ext_resource type="Script" uid="uid://b6264exh1ntmu" path="res://Scripts/game over Menu.gd" id="1_i0b3j"]
 [ext_resource type="FontFile" uid="uid://dsgyxibyhxj10" path="res://PressStart2P.ttf" id="2_xqlid"]
 [ext_resource type="AudioStream" uid="uid://cegwxo4m0nxd3" path="res://sounds/game over sound.wav" id="3_lxwha"]
-[ext_resource type="Script" path="res://Scripts/Button.gd" id="3_p0xq0"]
+[ext_resource type="Script" uid="uid://c77tqvtvjxiyi" path="res://Scripts/Button.gd" id="3_p0xq0"]
 
 [node name="Death Menu" type="CanvasLayer"]
 process_mode = 3
@@ -31,12 +31,14 @@ process_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -550.0
-offset_right = 550.0
-offset_bottom = 203.0
+offset_left = -1105.0
+offset_top = 3.0
+offset_right = -5.0
+offset_bottom = 206.0
 grow_horizontal = 2
+scale = Vector2(2, 2)
 theme = ExtResource("1_56oo4")
-theme_override_font_sizes/font_size = 100
+theme_override_fonts/font = ExtResource("2_xqlid")
 text = "You Dead...
 Game Over"
 horizontal_alignment = 1
@@ -50,9 +52,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -274.0
-offset_top = -100.0
+offset_top = 126.0
 offset_right = 274.0
-offset_bottom = 100.0
+offset_bottom = 326.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_56oo4")
@@ -60,16 +62,16 @@ theme = ExtResource("1_56oo4")
 [node name="return" type="Button" parent="VBoxContainer"]
 process_mode = 3
 layout_mode = 2
+theme = ExtResource("1_56oo4")
 theme_override_fonts/font = ExtResource("2_xqlid")
-theme_override_font_sizes/font_size = 90
 text = "Return"
 script = ExtResource("3_p0xq0")
 
 [node name="back" type="Button" parent="VBoxContainer"]
 process_mode = 3
 layout_mode = 2
+theme = ExtResource("1_56oo4")
 theme_override_fonts/font = ExtResource("2_xqlid")
-theme_override_font_sizes/font_size = 90
 text = "Back"
 
 [node name="Credits" type="Label" parent="."]

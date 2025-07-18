@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bswhbe44h2joi"]
+
+[ext_resource type="Script" uid="uid://cm8kwlgrgmbfw" path="res://Scripts/music_manager.gd" id="1_mqp6t"]
+[ext_resource type="AudioStream" uid="uid://cbv44u3t1rhj7" path="res://sounds/3. Track 3.wav" id="2_x1bnw"]
+[ext_resource type="AudioStream" uid="uid://dc83shkmhvrpk" path="res://sounds/1. Track 1.wav" id="3_rbmmv"]
+[ext_resource type="AudioStream" uid="uid://dmwshcvhreqo7" path="res://sounds/8. Track 8.wav" id="4_gtdkq"]
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_mqp6t")
+
+[node name="Musicboss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_x1bnw")
+bus = &"Music"
+
+[node name="MusicLevel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rbmmv")
+bus = &"Music"
+
+[node name="MusicMainMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gtdkq")
+bus = &"Music"

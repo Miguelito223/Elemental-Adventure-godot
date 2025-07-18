@@ -1,561 +1,140 @@
-[gd_scene load_steps=27 format=3 uid="uid://cohx7ukuvlihy"]
+[gd_scene load_steps=13 format=3 uid="uid://cohx7ukuvlihy"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_peqvs"]
+[ext_resource type="Script" uid="uid://dsfqsg7hb1m0f" path="res://Scripts/player.gd" id="1_peqvs"]
 [ext_resource type="SpriteFrames" uid="uid://cswkaimcwce0g" path="res://player.tres" id="2_svkx8"]
+[ext_resource type="Texture2D" uid="uid://cl42pdns3y0ig" path="res://Sprites/Controls/shaded-light/shadedLight33.png" id="4_8erm5"]
+[ext_resource type="AudioStream" uid="uid://o1g3wo248f04" path="res://sounds/jump.wav" id="5_3smsa"]
 [ext_resource type="Theme" uid="uid://cf6o5io44h03f" path="res://Elemental Adventure theme.tres" id="5_ns770"]
-[ext_resource type="Texture2D" uid="uid://chda8y1tj8hby" path="res://Sprites/hearth.png" id="5_uo812"]
-[ext_resource type="FontFile" uid="uid://dsgyxibyhxj10" path="res://PressStart2P.ttf" id="6_nj16g"]
+[ext_resource type="AudioStream" uid="uid://drr2wubpf40ds" path="res://sounds/laserShoot.wav" id="6_8erm5"]
 [ext_resource type="PackedScene" uid="uid://y6bboatewubh" path="res://Scenes/pause_menu.tscn" id="9_aviom"]
 [ext_resource type="Texture2D" uid="uid://c45gcdl5erpan" path="res://Sprites/linght.png" id="10_6u4n5"]
 [ext_resource type="PackedScene" uid="uid://ywyhxmenkfw" path="res://Scenes/mobilecontrolls.tscn" id="11_tb078"]
-[ext_resource type="Script" path="res://Scripts/CanvasLayer.gd" id="15_jtxs5"]
-[ext_resource type="Texture2D" uid="uid://c3wdxsquphqdl" path="res://Sprites/energy.png" id="18_6b2vi"]
-[ext_resource type="Texture2D" uid="uid://clolk7yspwv7q" path="res://Sprites/deaths-head-153588_1280.webp" id="19_ftjg4"]
-[ext_resource type="AudioStream" uid="uid://ft1r657tvajy" path="res://sounds/pasos cesped.mp3" id="21_ctvyi"]
+[ext_resource type="AudioStream" uid="uid://b58fkkwav5ji4" path="res://sounds/Walk.wav" id="21_ctvyi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dy66o"]
 radius = 29.7705
 height = 64.7923
 
-[sub_resource type="Animation" id="Animation_gf7xr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx1dd"]
+size = Vector2(40, 48)
 
-[sub_resource type="Animation" id="Animation_2btgx"]
-resource_name = "damage"
-length = 0.1
-loop_mode = 1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0504475, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_2xknv"]
-resource_name = "flash"
-length = 0.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-
-[sub_resource type="Animation" id="Animation_h0bwp"]
-resource_name = "rest"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fjqwq"]
-_data = {
-"RESET": SubResource("Animation_gf7xr"),
-"damage": SubResource("Animation_2btgx"),
-"flash": SubResource("Animation_2xknv"),
-"rest": SubResource("Animation_h0bwp")
-}
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_uy6bv"]
-properties/0/path = NodePath("Node2D:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
-properties/1/path = NodePath("Node2D:rotation")
-properties/1/spawn = true
-properties/1/replication_mode = 1
-properties/2/path = NodePath(".:rotation")
-properties/2/spawn = true
-properties/2/replication_mode = 1
-properties/3/path = NodePath(".:velocity")
-properties/3/spawn = true
-properties/3/replication_mode = 1
-properties/4/path = NodePath(".:player_name")
-properties/4/spawn = true
-properties/4/replication_mode = 1
-properties/5/path = NodePath(".:Max_Hearths")
-properties/5/spawn = true
-properties/5/replication_mode = 1
-properties/6/path = NodePath(".:player_color")
-properties/6/spawn = true
-properties/6/replication_mode = 1
-properties/7/path = NodePath(".:ball_color")
-properties/7/spawn = true
-properties/7/replication_mode = 1
-properties/8/path = NodePath(".:is_moving")
-properties/8/spawn = true
-properties/8/replication_mode = 1
-properties/9/path = NodePath(".:position")
-properties/9/spawn = true
-properties/9/replication_mode = 1
-properties/10/path = NodePath(".:device_num")
-properties/10/spawn = true
-properties/10/replication_mode = 1
-properties/11/path = NodePath("Node2D/Marker2D:rotation")
-properties/11/spawn = true
-properties/11/replication_mode = 1
-properties/12/path = NodePath("Node2D/Marker2D:position")
-properties/12/spawn = true
-properties/12/replication_mode = 1
-properties/13/path = NodePath("Node2D/Marker2D:scale")
-properties/13/spawn = true
-properties/13/replication_mode = 1
-properties/14/path = NodePath("Node2D:scale")
-properties/14/spawn = true
-properties/14/replication_mode = 1
-properties/15/path = NodePath("AnimatedSprite2D:position")
-properties/15/spawn = true
-properties/15/replication_mode = 1
-properties/16/path = NodePath("AnimatedSprite2D:scale")
-properties/16/spawn = true
-properties/16/replication_mode = 1
-properties/17/path = NodePath("AnimatedSprite2D:rotation")
-properties/17/spawn = true
-properties/17/replication_mode = 1
-properties/18/path = NodePath(".:Hearths")
-properties/18/spawn = true
-properties/18/replication_mode = 1
-properties/19/path = NodePath(".:player_id")
-properties/19/spawn = true
-properties/19/replication_mode = 1
-properties/20/path = NodePath(".:scale")
-properties/20/spawn = true
-properties/20/replication_mode = 1
-properties/21/path = NodePath(".:can_fire")
-properties/21/spawn = true
-properties/21/replication_mode = 1
-properties/22/path = NodePath("AnimatedSprite2D:animation")
-properties/22/spawn = true
-properties/22/replication_mode = 1
-properties/23/path = NodePath("AnimatedSprite2D:frame")
-properties/23/spawn = true
-properties/23/replication_mode = 1
-properties/24/path = NodePath("AnimatedSprite2D:speed_scale")
-properties/24/spawn = true
-properties/24/replication_mode = 1
-properties/25/path = NodePath("AnimatedSprite2D:flip_h")
-properties/25/spawn = true
-properties/25/replication_mode = 1
-properties/26/path = NodePath("AnimatedSprite2D:flip_v")
-properties/26/spawn = true
-properties/26/replication_mode = 1
-properties/27/path = NodePath("Name:text")
-properties/27/spawn = true
-properties/27/replication_mode = 1
-properties/28/path = NodePath("Name:position")
-properties/28/spawn = true
-properties/28/replication_mode = 1
-properties/29/path = NodePath("Name:scale")
-properties/29/spawn = true
-properties/29/replication_mode = 1
-properties/30/path = NodePath("Pasos:playing")
-properties/30/spawn = true
-properties/30/replication_mode = 1
-properties/31/path = NodePath("Name:rotation")
-properties/31/spawn = true
-properties/31/replication_mode = 1
-properties/32/path = NodePath(".:skew")
-properties/32/spawn = true
-properties/32/replication_mode = 1
-properties/33/path = NodePath(".:motion_mode")
-properties/33/spawn = true
-properties/33/replication_mode = 1
-properties/34/path = NodePath(".:up_direction")
-properties/34/spawn = true
-properties/34/replication_mode = 1
-properties/35/path = NodePath(".:slide_on_ceiling")
-properties/35/spawn = true
-properties/35/replication_mode = 1
-properties/36/path = NodePath(".:floor_stop_on_slope")
-properties/36/spawn = true
-properties/36/replication_mode = 1
-properties/37/path = NodePath(".:floor_constant_speed")
-properties/37/spawn = true
-properties/37/replication_mode = 1
-properties/38/path = NodePath(".:floor_block_on_wall")
-properties/38/spawn = true
-properties/38/replication_mode = 1
-properties/39/path = NodePath(".:floor_max_angle")
-properties/39/spawn = true
-properties/39/replication_mode = 1
-properties/40/path = NodePath(".:floor_snap_length")
-properties/40/spawn = true
-properties/40/replication_mode = 1
-properties/41/path = NodePath(".:platform_on_leave")
-properties/41/spawn = true
-properties/41/replication_mode = 1
-properties/42/path = NodePath(".:platform_floor_layers")
-properties/42/spawn = true
-properties/42/replication_mode = 1
-properties/43/path = NodePath(".:platform_wall_layers")
-properties/43/spawn = true
-properties/43/replication_mode = 1
-properties/44/path = NodePath(".:safe_margin")
-properties/44/spawn = true
-properties/44/replication_mode = 1
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ogjv1"]
-atlas = ExtResource("18_6b2vi")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dnmc3"]
-atlas = ExtResource("18_6b2vi")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t6ol6"]
-atlas = ExtResource("18_6b2vi")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5g7vd"]
-atlas = ExtResource("18_6b2vi")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ylcma"]
-atlas = ExtResource("18_6b2vi")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_an653"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ogjv1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dnmc3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t6ol6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5g7vd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ylcma")
-}],
-"loop": true,
-"name": &"Coin",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0xrs"]
-size = Vector2(40, 15)
-
-[node name="player" type="CharacterBody2D" groups=["persistent", "player", "water"]]
+[node name="player" type="CharacterBody2D" groups=["persistent", "player"]]
 script = ExtResource("1_peqvs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, -16)
 scale = Vector2(0.537445, 0.540188)
 shape = SubResource("CapsuleShape2D_dy66o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(8, -16)
 sprite_frames = ExtResource("2_svkx8")
 animation = &"fire idle"
 autoplay = "fire idle"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_fjqwq")
-}
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_uy6bv")
-
-[node name="Mobilecontrolls" parent="." instance=ExtResource("11_tb078")]
-visible = false
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(16, -24)
 
 [node name="Hud" type="CanvasLayer" parent="."]
-script = ExtResource("15_jtxs5")
 
-[node name="Panel" type="Panel" parent="Hud"]
-offset_top = 2.0
-offset_right = 325.0
-offset_bottom = 75.0
+[node name="Lifes" type="Panel" parent="Hud"]
+offset_right = 448.0
+offset_bottom = 67.0
 theme = ExtResource("5_ns770")
-metadata/_edit_group_ = true
 
-[node name="Hearths" type="TextureRect" parent="Hud/Panel"]
-layout_mode = 1
-anchors_preset = 15
+[node name="Label" type="Label" parent="Hud/Lifes"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 141.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 25
+text = "Lifes: 0
+"
+
+[node name="Energys" type="Panel" parent="Hud"]
+offset_top = 72.0
+offset_right = 448.0
+offset_bottom = 139.0
+theme = ExtResource("5_ns770")
+
+[node name="Label" type="Label" parent="Hud/Energys"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 316.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 25
+text = "EnergysBalls: 0"
+
+[node name="Points" type="Panel" parent="Hud"]
+offset_top = 144.0
+offset_right = 448.0
+offset_bottom = 211.0
+theme = ExtResource("5_ns770")
+
+[node name="Label" type="Label" parent="Hud/Points"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 192.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 25
+text = "Points: 0"
+
+[node name="TextureButton" type="TextureButton" parent="Hud"]
+modulate = Color(0.305337, 6.2955e-05, 0.305335, 1)
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = 11.0
-offset_right = 884.0
-offset_bottom = 938.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.05, 0.05)
+offset_left = -136.0
+offset_bottom = 136.0
+grow_horizontal = 0
 theme = ExtResource("5_ns770")
-texture = ExtResource("5_uo812")
-expand_mode = 1
-stretch_mode = 1
-
-[node name="Panel2" type="Panel" parent="Hud"]
-offset_top = 67.0
-offset_right = 238.0
-offset_bottom = 140.0
-theme = ExtResource("5_ns770")
-metadata/_edit_group_ = true
-
-[node name="Label2" type="Label" parent="Hud/Panel2"]
-layout_mode = 0
-offset_left = 103.0
-offset_top = 9.0
-offset_right = 175.0
-offset_bottom = 35.0
-scale = Vector2(2.55157, 2.73754)
-theme = ExtResource("5_ns770")
-theme_override_fonts/font = ExtResource("6_nj16g")
-theme_override_font_sizes/font_size = 18
-text = ":0
-"
-vertical_alignment = 1
-
-[node name="coin" type="AnimatedSprite2D" parent="Hud/Panel2/Label2"]
-texture_filter = 1
-position = Vector2(-14.5009, 11.6893)
-scale = Vector2(0.83282, 0.730583)
-sprite_frames = SubResource("SpriteFrames_an653")
-animation = &"Coin"
-autoplay = "Coin"
-
-[node name="Panel3" type="Panel" parent="Hud"]
-offset_top = 213.0
-offset_right = 238.0
-offset_bottom = 286.0
-scale = Vector2(1.01075, 1.02941)
-theme = ExtResource("5_ns770")
-metadata/_edit_group_ = true
-
-[node name="Label3" type="Label" parent="Hud/Panel3"]
-layout_mode = 0
-offset_left = 2.96809
-offset_top = 7.77145
-offset_right = 92.9681
-offset_bottom = 33.7714
-scale = Vector2(2.55157, 2.73754)
-theme = ExtResource("5_ns770")
-theme_override_fonts/font = ExtResource("6_nj16g")
-theme_override_font_sizes/font_size = 18
-text = "12:00
-"
-vertical_alignment = 1
-
-[node name="Panel4" type="Panel" parent="Hud"]
-offset_top = 139.0
-offset_right = 411.0
-offset_bottom = 212.0
-scale = Vector2(1.01075, 1.02941)
-theme = ExtResource("5_ns770")
-metadata/_edit_group_ = true
-
-[node name="Label4" type="Label" parent="Hud/Panel4"]
-layout_mode = 0
-offset_left = 18.7979
-offset_top = 6.80002
-offset_right = 130.798
-offset_bottom = 32.8
-scale = Vector2(2.55157, 2.73754)
-theme = ExtResource("5_ns770")
-theme_override_fonts/font = ExtResource("6_nj16g")
-theme_override_font_sizes/font_size = 18
-text = "score:0
-"
-vertical_alignment = 1
-
-[node name="Panel5" type="Panel" parent="Hud"]
-offset_left = 325.0
-offset_top = 2.0
-offset_right = 492.0
-offset_bottom = 75.0
-theme = ExtResource("5_ns770")
-metadata/_edit_group_ = true
-
-[node name="Label" type="Label" parent="Hud/Panel5"]
-layout_mode = 0
-offset_left = 76.0
-offset_top = 20.0
-offset_right = 181.0
-offset_bottom = 58.0
-theme = ExtResource("5_ns770")
-theme_override_fonts/font = ExtResource("6_nj16g")
-theme_override_font_sizes/font_size = 35
-text = ":0"
-
-[node name="Deaths" type="TextureRect" parent="Hud/Panel5/Label"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -60.0
-offset_top = -14.0
-offset_right = 895.0
-offset_bottom = 1007.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.05, 0.05)
-theme = ExtResource("5_ns770")
-texture = ExtResource("19_ftjg4")
-expand_mode = 1
-
-[node name="FPS" type="Label" parent="Hud"]
-offset_left = 5.0
-offset_top = 295.0
-offset_right = 45.0
-offset_bottom = 318.0
-theme = ExtResource("5_ns770")
-theme_override_fonts/font = ExtResource("6_nj16g")
-theme_override_font_sizes/font_size = 34
-text = "FPS: "
-
-[node name="Credits" type="Label" parent="Hud"]
-offset_left = 8.0
-offset_top = 1057.0
-offset_right = 416.0
-offset_bottom = 1084.0
-theme = ExtResource("5_ns770")
-theme_override_font_sizes/font_size = 24
-text = "make by Michael2911"
-
-[node name="pause" type="Button" parent="Hud"]
-texture_filter = 1
-offset_left = 1587.0
-offset_top = -1.0
-offset_right = 1675.0
-offset_bottom = 24.0
-scale = Vector2(3.7841, 2.90174)
-theme = ExtResource("5_ns770")
-theme_override_font_sizes/font_size = 10
-text = "Pause"
+texture_normal = ExtResource("4_8erm5")
+texture_pressed = ExtResource("4_8erm5")
+texture_hover = ExtResource("4_8erm5")
+texture_disabled = ExtResource("4_8erm5")
+texture_focused = ExtResource("4_8erm5")
+stretch_mode = 0
 
 [node name="Pause menu" parent="." instance=ExtResource("9_aviom")]
 visible = false
 
-[node name="Name" type="Label" parent="."]
-offset_left = -27.5
-offset_top = -35.0
-offset_right = 37.5
-offset_bottom = -11.0
-theme_override_fonts/font = ExtResource("6_nj16g")
-theme_override_font_sizes/font_size = 16
-text = "Fire"
+[node name="Mobilecontrolls" parent="." instance=ExtResource("11_tb078")]
+
+[node name="bulletpos" type="Node2D" parent="."]
+
+[node name="bulletspawn" type="Node2D" parent="bulletpos"]
+position = Vector2(40, 0)
+
+[node name="JumpSounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_3smsa")
+
+[node name="ShootSounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_8erm5")
+
+[node name="WalkSounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_ctvyi")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(0.651042, 0.439453)
-color = Color(1, 0.701961, 0, 1)
-range_layer_min = -1
+position = Vector2(8, -16)
+scale = Vector2(0.195313, 0.1875)
+range_layer_min = -100
 shadow_enabled = true
 shadow_filter = 1
-shadow_filter_smooth = 3.0
 texture = ExtResource("10_6u4n5")
-texture_scale = 0.5
 
-[node name="Invunerability" type="Timer" parent="."]
-wait_time = 0.8
-one_shot = true
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 5
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, -16)
+shape = SubResource("RectangleShape2D_tx1dd")
 
-[node name="Marker2D" type="Marker2D" parent="Node2D"]
-position = Vector2(38, 0)
+[connection signal="pressed" from="Hud/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 
-[node name="Pasos" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("21_ctvyi")
-bus = &"FX"
-
-[node name="WaterDetector2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterDetector2D"]
-position = Vector2(2.5, 9.99999)
-scale = Vector2(0.999999, 0.999999)
-shape = SubResource("RectangleShape2D_g0xrs")
-
-[node name="LavaDetector2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LavaDetector2D"]
-position = Vector2(2.5, 9.99999)
-scale = Vector2(0.999999, 0.999999)
-shape = SubResource("RectangleShape2D_g0xrs")
-
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="pressed" from="Hud/pause" to="." method="_on_exit_pressed"]
-[connection signal="timeout" from="Invunerability" to="." method="_on_invunerability_timeout"]
-[connection signal="body_entered" from="WaterDetector2D" to="." method="_on_water_detector_2d_body_entered"]
-[connection signal="body_exited" from="WaterDetector2D" to="." method="_on_water_detector_2d_body_exited"]
-[connection signal="body_entered" from="LavaDetector2D" to="." method="_on_lava_detector_2d_body_entered"]
-[connection signal="body_exited" from="LavaDetector2D" to="." method="_on_lava_detector_2d_body_exited"]
+[editable path="Pause menu"]
