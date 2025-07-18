@@ -15,11 +15,7 @@ run/main_scene="uid://bq8c11xjf1nct"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0.239216, 0, 0.396078, 1)
 boot_splash/show_image=false
-<<<<<<< HEAD
 boot_splash/fullsize=false
-=======
-boot_splash/image="res://icon.png"
->>>>>>> dcd4443f3030747a843c06ec08572ef855a127ea
 boot_splash/use_filter=false
 config/icon="uid://ckt0eppr5lntw"
 boot_splash/minimum_display_time=7
